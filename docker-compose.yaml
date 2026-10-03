@@ -114,7 +114,7 @@ services:
     container_name: statsd-exporter
     restart: unless-stopped
     ports:
-      - "9125:9125"
+      - "9125:9125/udp"
     command:
       - --statsd.mapping-config=/etc/statsd/mapping.yml
     volumes:
