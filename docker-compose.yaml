@@ -111,6 +111,7 @@ services:
       - loki
   statsd-exporter:
     image: prom/statsd-exporter
+    container_name: statsd-exporter
     restart: unless-stopped
     ports:
       - "9125:9125"
