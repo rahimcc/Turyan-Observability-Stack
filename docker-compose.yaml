@@ -109,6 +109,16 @@ services:
       - observability
     depends_on:
       - loki
+  statsd-exporter:
+    image: prom/statsd-exporter
+    restart: unless-stopped
+    ports:
+      - "9125:9125"
+    command:
+      - --statsd.mapping-config=/etc/statsd/mapping.yml
+    volumes:
+      - ./statsd/mapping.yml:/etc/statsd/mapping.yml:ro
+    # no ports: published, everything stays on the Docker network
 
   # ---------- Visualization ----------
   grafana:
