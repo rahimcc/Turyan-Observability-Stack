@@ -119,6 +119,8 @@ services:
       - --statsd.mapping-config=/etc/statsd/mapping.yml
     volumes:
       - ./statsd/mapping.yml:/etc/statsd/mapping.yml:ro
+    networks:
+      - observability
     # no ports: published, everything stays on the Docker network
 
   # ---------- Visualization ----------
