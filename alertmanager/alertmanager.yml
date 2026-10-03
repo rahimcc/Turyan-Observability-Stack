@@ -1,0 +1,8 @@
+route:
+  receiver: keep
+
+receivers:
+  - name: keep
+    webhook_configs:
+      - url: /etc/alertmanager/secrets/keep_webhook_url
+        send_resolved: true
